@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "auto",
         alignItems: "center",
+        marginBottom: 20
     },
     CurrentPrice: {
         color: "#f50d41",
