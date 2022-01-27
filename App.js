@@ -1,12 +1,13 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Platform, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello World</Text>
-      <StatusBar style="auto" />
+      <StatusBar 
+        backgroundColor='#f50d41' 
+        barStyle="light-content"     
+      />
     </SafeAreaView>
   );
 }
