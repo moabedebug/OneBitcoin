@@ -6,6 +6,15 @@ import HistoryGraphic from './src/components/HistoryGraphic';
 import QuatationsList from './src/components/QuotationsList/'
 import QuotationsItems from './src/components/QuotationsList/QuotationsItems/'
 
+function addZero(number){
+  if(number <= 9 ){
+    return "0" + number
+  }
+  return number
+}
+
+
+
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
@@ -17,7 +26,6 @@ export default function App() {
       <HistoryGraphic/>
       <QuatationsList/>
       <QuotationsItems/>
-      
     </SafeAreaView>
   );
 }
