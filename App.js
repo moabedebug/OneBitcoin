@@ -61,7 +61,10 @@ export default function App() {
   const [days, setDays] = useState(30)
   const [updateData, setUpdateData ] = useState(true)
 
-  
+  function updateDay(number){
+    setDays(number)
+    setUpdateData(true)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
