@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Platform, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
 import CurrentPrice from './src/components/CurrentPrice/'
@@ -56,6 +56,13 @@ async function getPriceCoinsGraphic(url){
 
 
 export default function App() {
+  const [coinList, setCoinList] = useState([])
+  const [coinGraphicList, setCoinsGraphicList] = useState([0])
+  const [days, setDays] = useState(30)
+  const [updateData, setUpdateData ] = useState(true)
+
+  
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar 
