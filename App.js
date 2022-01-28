@@ -13,6 +13,20 @@ function addZero(number){
   return number
 }
 
+function url(qtdDays){
+  const date = new Date()
+  const listLastDays = qtdDays
+
+  const end_date =  
+  `${date.getFullYear()}-${addZero(date.getMonth()+1)}-${addZero(date.getDay())}`
+  date.setDate(date.getDate() - listLastDays)
+
+  const start_date = 
+  `${date.getFullYear()}-${addZero(date.getMonth()+1)}-${addZero(date.getDay())}`
+
+  return `https://api.coindesk.com/v1/bgi/historical/close.json?start=${start_date}&end=${end_date}`
+}
+
 
 
 export default function App() {
