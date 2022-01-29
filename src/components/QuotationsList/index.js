@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native"
 import styles from "./style";
 
-export default function QuatationsList(){
+export default function QuatationsList(props){
+
     return(
         <Fragment>
         <View style={styles.filters}>
