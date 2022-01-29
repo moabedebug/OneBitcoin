@@ -1,57 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { Platform, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
-import { SectionList } from 'react-native-web';
+import { SectionList } from 'react-native';
 
 import CurrentPrice from './src/components/CurrentPrice/'
 import HistoryGraphic from './src/components/HistoryGraphic';
 import QuatationsList from './src/components/QuotationsList/'
 import QuotationsItems from './src/components/QuotationsList/QuotationsItems/'
 
-function addZero(number){
-  if(number <= 9 ){
-    return "0" + number
+function addZero(number) {
+  if (number <= 9) {
+    return "0" + number;
   }
-  return number
+  return number;
 }
 
-function url(qtdDays){
-  const date = new Date()
-  const listLastDays = qtdDays
-
-  const end_date =  
-  `${date.getFullYear()}-${addZero(date.getMonth()+1)}-${addZero(date.getDay())}`
-  date.setDate(date.getDate() - listLastDays)
-
+function url(qtdDias) {
+  const date = new Date();
+  const listLastDays = qtdDias;
+  const end_date = 
+  `${date.getFullYear()}-${addZero(date.getMonth() + 1)}-${addZero(date.getDate())}`;
+  date.setDate(date.getDate() - listLastDays);
   const start_date = 
-  `${date.getFullYear()}-${addZero(date.getMonth()+1)}-${addZero(date.getDay())}`
-
-  return `https://api.coindesk.com/v1/bgi/historical/close.json?start=${start_date}&end=${end_date}`
+  `${date.getFullYear()}-${addZero(date.getMonth() + 1)}-${addZero(date.getDate())}`;
+  return `https://api.coindesk.com/v1/bpi/historical/close.json?start=${start_date}&end=${end_date}`;;
 }
 
 
-async function getListCoins(url){
-  let response = await fetch(url)
-  let returnApi = await response.json()
-  let selectListQuotations = returnApi.bpi
-  const queryCoinsList = Object.keys(selectListQuotations).map((key)=>{
-    return{
+async function getListCoins(url) {
+  let response = await fetch(url);
+  let retunrApi = await response.json();
+  let selectListQuotations = retunrApi.bpi;
+  const queryCoinsList = Object.keys(selectListQuotations).map((key) => {
+    return {
       data: key.split("-").reverse().join("/"),
       valor: selectListQuotations[key],
-    }
-  })
-  let data = queryCoinsList.reverse()
-  return data
+    };
+  });
+  let data = queryCoinsList.reverse();
+  return data;
 }
 
-async function getPriceCoinsGraphic(url){
-  let responseG = await fetch(url)
-  let returnApiG = await responseG.json()
-  let selectListQuotationsG = returnApiG.bpi
-  const queryCoinsList = Object.keys(selectListQuotationsG).map((key)=>{
-     selectListQuotationsG[key]
-  })
-  let dataG = queryCoinsList
-  return dataG
+async function getPriceCoinsGraphic(url) {
+  let responseG = await fetch(url);
+  let returnApiG = await responseG.json();
+  let selectListQuotationsG = returnApiG.bpi;
+  const queryCoinsListG = Object.keys(selectListQuotationsG).map((key) => {
+    return selectListQuotationsG[key];
+  });
+  let dataG = queryCoinsListG;
+  return dataG;
 }
 
 
