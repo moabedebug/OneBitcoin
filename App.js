@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Platform, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { SectionList } from 'react-native-web';
 
 import CurrentPrice from './src/components/CurrentPrice/'
 import HistoryGraphic from './src/components/HistoryGraphic';
@@ -49,7 +50,7 @@ async function getPriceCoinsGraphic(url){
   const queryCoinsList = Object.keys(selectListQuotationsG).map((key)=>{
      selectListQuotationsG[key]
   })
-  let dataG = queryCoinsList.reverse()
+  let dataG = queryCoinsList
   return dataG
 }
 
@@ -65,6 +66,21 @@ export default function App() {
     setDays(number)
     setUpdateData(true)
   }
+
+  useEffect(() => {
+
+    getListCoins(url(days)).then((data)=> {
+      setCoinList(data)
+    })
+
+    getPriceCoinsGraphic(url(days)).then((dataG)=>{
+      setCoinsGraphicList(dataG)
+    })
+    if (updateData) {
+      setUpdateData(false);
+    }
+
+  },[updateData])
 
   return (
     <SafeAreaView style={styles.container}>
