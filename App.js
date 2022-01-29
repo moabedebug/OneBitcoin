@@ -37,7 +37,7 @@ async function getListCoins(url) {
     };
   });
   let data = queryCoinsList.reverse();
-  console.log(data)
+  return data;
 }
 
 async function getPriceCoinsGraphic(url) {
@@ -48,7 +48,7 @@ async function getPriceCoinsGraphic(url) {
     return selectListQuotationsG[key];
   });
   let dataG = queryCoinsListG;
-  console.log(dataG);
+  return dataG;
 }
 
 
@@ -87,8 +87,7 @@ export default function App() {
       />
       <CurrentPrice/>
       <HistoryGraphic/>
-      <QuatationsList/>
-      <QuotationsItems/>
+      <QuatationsList  />
     </SafeAreaView>
   );
 }
