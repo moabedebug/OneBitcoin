@@ -3,13 +3,13 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native"
 import styles from "./style";
 
 export default function QuatationsList(props){
-
+    const daysQuery = props.filterDay
     return(
         <Fragment>
         <View style={styles.filters}>
             <TouchableOpacity
                 style={styles.buttonQuery}
-                onPress={() => {}}
+                onPress={() => daysQuery}
             >
                 <Text style={styles.textButtonQuery}>7D</Text>
             </TouchableOpacity>
