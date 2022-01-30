@@ -47,7 +47,7 @@ export default function QuatationsList(props){
             <FlatList
                 data={props.listTransactions}
                 renderItem={({ item }) => {
-                    return <QuotationsItems valor={item.valor} data={item.data} />;
+                    return <QuotationsItems valor={item.valor} data={item.data} />
                 }}
             />
         </ScrollView>
