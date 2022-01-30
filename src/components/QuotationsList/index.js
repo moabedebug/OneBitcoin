@@ -43,12 +43,12 @@ export default function QuatationsList(props){
                 <Text style={styles.textButtonQuery}>6M</Text>
             </TouchableOpacity>
         </View>
-        <ScrollView>
+        <ScrollView style={styles.listQuotationBitcoins}>
             <FlatList
-              data={props.listTransactions}
-              renderItem={({ item })=> {
-                  return <QuotationsItems  valor={item.valor}  data={item.data}/>
-              }}
+                data={props.listTransactions}
+                renderItem={({ item }) => {
+                    return <QuotationsItems valor={item.valor} data={item.data} />;
+                }}
             />
         </ScrollView>
         </Fragment>
