@@ -1,6 +1,11 @@
 import React, { Fragment } from "react";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native"
+import { View, Text, ScrollView, TouchableOpacity, FlatList } from "react-native"
+
 import styles from "./style";
+
+import QuotationsItems from "./QuotationsItems";
+
+
 
 export default function QuatationsList(props){
     const daysQuery = props.filterDay
@@ -38,6 +43,14 @@ export default function QuatationsList(props){
                 <Text style={styles.textButtonQuery}>6M</Text>
             </TouchableOpacity>
         </View>
+        <ScrollView>
+            <FlatList
+              data={props.listTransactions}
+              renderItem={({ item })=> {
+                  return <QuotationsItems  valor={item.valor}  data={item.data}/>
+              }}
+            />
+        </ScrollView>
         </Fragment>
     )
 }

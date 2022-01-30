@@ -56,7 +56,7 @@ async function getPriceCoinsGraphic(url) {
 export default function App() {
   const [coinList, setCoinList] = useState([])
   const [coinGraphicList, setCoinsGraphicList] = useState([0])
-  const [days, setDays] = useState(30)
+  const [days, setDays] = useState(1)
   const [updateData, setUpdateData ] = useState(true)
 
   function updateDay(number){
